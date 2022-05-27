@@ -79,7 +79,6 @@ class LinkedList:
             self.length += 1
             return True
 
-
     def pop(self):
         """Pop off a node at the end of the list"""
         if self.length == 0:
