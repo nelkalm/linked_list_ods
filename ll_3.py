@@ -12,13 +12,14 @@ class LinkedList:
         self.length = 1
 
     def get(self, index):
+        """Gets a node at a given index in the parameter."""
         if index < 0 or index >= self.length:
             return None
         temp = self.head
         for _ in range(index):
             temp = temp.next
         return temp
-    
+
     def set_value(self, index, value):
         temp = self.get(index)
         if temp is not None:
@@ -55,7 +56,28 @@ class LinkedList:
         return True
 
     def insert(self, index, value):
-        pass
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        else:
+            node_to_insert = Node(value)
+            # temp = self.head
+            # pre = self.head
+            # for _ in range(index):
+            #     pre = temp
+            #     temp = temp.next
+            # pre.next = node_to_insert
+            # node_to_insert.next = temp
+            # self.length += 1
+
+            temp = self.get(index - 1)
+            node_to_insert.next = temp.next
+            temp.next = node_to_insert
+            self.length += 1
+
 
     def pop(self):
         """Pop off a node at the end of the list"""
@@ -88,12 +110,9 @@ class LinkedList:
 
 
 my_linked_list = LinkedList(4)
-
-print(my_linked_list.head.value)
-my_linked_list.append(11)
-print(my_linked_list.tail.value)
-
+my_linked_list.prepend(5)
+my_linked_list.prepend(6)
+my_linked_list.prepend(7)
 print(my_linked_list.print_list())
-print(my_linked_list.pop())
-print(my_linked_list.pop())
-print(my_linked_list.pop())
+my_linked_list.insert(2, 3)
+print(my_linked_list.print_list())
