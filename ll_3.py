@@ -77,6 +77,7 @@ class LinkedList:
             node_to_insert.next = temp.next
             temp.next = node_to_insert
             self.length += 1
+            return True
 
 
     def pop(self):
