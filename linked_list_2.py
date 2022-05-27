@@ -25,6 +25,8 @@ class LinkedList:
         else:
             self.tail.next = node_to_add
             self.tail = node_to_add
+        self.length += 1
+        return True
 
     def prepend(self, value):
         pass
@@ -32,7 +34,31 @@ class LinkedList:
     def insert(self, index, value):
         pass
 
+    def pop(self):
+        """Pop off a node at the end of the list"""
+        if self.length == 0:
+            return None
+        temp = self.head
+        pre = self.head
+        while temp.next:
+            pre = temp
+            temp = temp.next
+        self.tail = pre
+        self.tail.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        return temp.value
+
 
 my_linked_list = LinkedList(4)
 
 print(my_linked_list.head.value)
+my_linked_list.append(11)
+print(my_linked_list.tail.value)
+
+print(my_linked_list.print_list())
+print(my_linked_list.pop())
+print(my_linked_list.pop())
+print(my_linked_list.pop())
