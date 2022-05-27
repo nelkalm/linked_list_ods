@@ -29,7 +29,15 @@ class LinkedList:
         return True
 
     def prepend(self, value):
-        pass
+        node_to_add = Node(value)
+        if self.length == 0:
+            self.head = node_to_add
+            self.tail = node_to_add
+        else:
+            node_to_add.next = self.head
+            self.head = node_to_add
+        self.length += 1
+        return True
 
     def insert(self, index, value):
         pass
