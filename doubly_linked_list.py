@@ -8,23 +8,31 @@ class DoublyLinkedList:
         dummy.prev = dummy
         dummy.next = dummy
 
-    def get_node(node):
+    def get_node(self, node_index):
+        if node_index < self.length / 2:
+            node = self.dummy.next
+            for _ in range(node_index):
+                node = node.next
+        else:
+            node = self.dummy.next
+            for _ in range(self.length - node_index):
+                node = node.prev
+        return node
+
+    def get_element(self, value):
         pass
 
-    def get_element(value):
+    def set_node_value(self, node_index, value):
         pass
 
-    def set_node_value(node, value):
+    def add_before(self, node_to_add, value):
         pass
 
-    def add_before(node_to_add, value):
+    def add(self, node_index, value):
         pass
 
-    def add(node, value):
+    def remove_node(self, node_to_remove):
         pass
 
-    def remove_node(node_to_remove):
-        pass
-
-    def remove(node):
+    def remove(self, node_index):
         pass
