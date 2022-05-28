@@ -12,13 +12,13 @@ class DoublyLinkedList:
         self.head = new_node
         self.tail = new_node
         self.length = 1
-    
+
     def print_list(self):
         temp = self.head
         while temp is not None:
             print(temp.value)
             temp = temp.next
-    
+
     def append(self, value):
         node_to_add = Node(value)
         if self.head is None:
@@ -30,7 +30,7 @@ class DoublyLinkedList:
             self.tail = node_to_add
         self.length += 1
         return True
-    
+
     def prepend(self, value):
         node_to_add = Node(value)
         if self.head is None:
@@ -56,6 +56,7 @@ class DoublyLinkedList:
             temp.prev = None
         self.length -= 1
         return temp
+
 
 my_doubly_linked_list = DoublyLinkedList(7)
 my_doubly_linked_list.print_list()
