@@ -32,6 +32,11 @@ class LinkedList:
         while temp is not None:
             print(temp.value)
             temp = temp.next
+    
+    def find_middle(self):
+        middle_index = (self.length - 1) // 2
+        middle_node = self.get(middle_index)
+        return middle_node
 
     def append(self, value):
         node_to_add = Node(value)
@@ -145,4 +150,6 @@ print(my_linked_list.print_list())
 my_linked_list.insert(2, 3)
 print(my_linked_list.print_list())
 my_linked_list.remove(2)
+my_linked_list.append(10)
 print(my_linked_list.print_list())
+print(my_linked_list.find_middle().value)
