@@ -32,7 +32,7 @@ class LinkedList:
         while temp is not None:
             print(temp.value)
             temp = temp.next
-    
+
     def find_middle(self):
         middle_index = (self.length - 1) // 2
         middle_node = self.get(middle_index)
@@ -48,6 +48,19 @@ class LinkedList:
             self.tail = node_to_add
         self.length += 1
         return True
+
+    def reverse_practice(self):
+        # 1 -> 2 -> 3 ->
+        current = self.head
+        # self.tail = current
+        before = None
+        after = None
+        while current is not None:
+            after = current.next
+            current.next = before
+            before = current
+            current = after
+        self.head = current
 
     def prepend(self, value):
         node_to_add = Node(value)
@@ -99,7 +112,7 @@ class LinkedList:
         if self.length == 0:
             self.head = None
             self.tail = None
-        return temp.value
+        return temp
 
     def pop_first(self):
         if self.length == 0:
@@ -111,8 +124,8 @@ class LinkedList:
             self.length -= 1
             if self.length == 0:
                 self.tail = None
-            return temp.value
-    
+            return temp
+
     def remove(self, index):
         if index < 0 or index > self.length:
             return None
@@ -143,13 +156,16 @@ class LinkedList:
 
 
 my_linked_list = LinkedList(4)
-my_linked_list.prepend(5)
-my_linked_list.prepend(6)
-my_linked_list.prepend(7)
-print(my_linked_list.print_list())
-my_linked_list.insert(2, 3)
-print(my_linked_list.print_list())
-my_linked_list.remove(2)
-my_linked_list.append(10)
-print(my_linked_list.print_list())
-print(my_linked_list.find_middle().value)
+my_linked_list.append(5)
+my_linked_list.append(6)
+# my_linked_list.prepend(7)
+# print(my_linked_list.print_list())
+# my_linked_list.insert(2, 3)
+# print(my_linked_list.print_list())
+# my_linked_list.remove(2)
+# my_linked_list.append(10)
+# print(my_linked_list.print_list())
+# print(my_linked_list.find_middle().value)
+# print('----------------')
+my_linked_list.print_list()
+my_linked_list.reverse_practice().print_list()
